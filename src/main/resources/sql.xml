@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <queries>
 	<query name="allProfiles">
-		SELECT * FROM PROFILE
+		SELECT * FROM PROFILES
 	</query>
 	<query name="addProfiles">
 		INSERT INTO PROFILES (ID, NAME) VALUES (?, ?) RETURNING PROFILES.ID
