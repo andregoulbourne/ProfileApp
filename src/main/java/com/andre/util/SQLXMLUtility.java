@@ -1,4 +1,4 @@
-package com.profiles.util;
+package com.andre.util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import org.w3c.dom.NodeList;
 
 public class SQLXMLUtility {
 	
-	private static final String path = "./src/main/resources/sql.xml";
+	private static final String SQLXMLPATH = "./src/main/resources/sql.xml";
 	
 	private static SQLXMLUtility sqlxmlUtility;
 	
@@ -47,7 +47,7 @@ public class SQLXMLUtility {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc =builder.parse(path);
+			Document doc =builder.parse(SQLXMLPATH);
 			NodeList queryList = doc.getElementsByTagName("query");
 			for(int i=0;i<queryList.getLength();i++) {
 				Node q = queryList.item(i);

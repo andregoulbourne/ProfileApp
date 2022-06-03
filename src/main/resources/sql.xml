@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <queries>
-	<query name="allProfiles">
+	<query name="getAllProfiles">
 		SELECT * FROM PROFILES
 	</query>
-	<query name="addProfiles">
-		INSERT INTO PROFILES (ID, NAME) VALUES (?, ?) RETURNING PROFILES.ID
+	<query name="insertAProfile">
+		INSERT INTO PROFILES (ID,NAME) VALUES (?,?)
 	</query>
 </queries>

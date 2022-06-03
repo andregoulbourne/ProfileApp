@@ -1,4 +1,4 @@
-package com.profiles.util;
+package com.andre.util;
 
 public class Constants {
 	

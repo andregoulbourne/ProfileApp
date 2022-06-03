@@ -1,4 +1,4 @@
-package com.profile.models;
+package com.andre.profile;
 
 public class Profile {
 	

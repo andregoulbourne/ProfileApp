@@ -1,4 +1,4 @@
-package com.profiles.dao;
+package com.andre.profile;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,10 +9,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.profile.models.Profile;
-import com.profiles.util.ConnectionUtil;
-import com.profiles.util.Constants;
-import com.profiles.util.SQLXMLUtility;
+import com.andre.util.ConnectionUtil;
+import com.andre.util.Constants;
+import com.andre.util.SQLXMLUtility;
 
 public class ProfileDao implements IProfileDao{
 	
@@ -31,13 +30,13 @@ public class ProfileDao implements IProfileDao{
 	}
 	
 	@Override
-	public List<Profile> all() {
+	public List<Profile> getAllProfiles() {
 		
 		List<Profile> allProfiles = new ArrayList<>();
 		
 		try (Statement stmt = ConnectionUtil.getConnection().createStatement(); ) {
 			
-			String sql = SQLXMLUtility.getInstance().getPropertyMap().get("allProfiles");
+			String sql = SQLXMLUtility.getInstance().getPropertyMap().get("getAllProfiles");
 			
 
 			ResultSet rs = stmt.executeQuery(sql);
@@ -57,24 +56,17 @@ public class ProfileDao implements IProfileDao{
 	}
 
 	@Override
-	public boolean add(Profile p) { // Think about the Profile that you take in as being generated from the input that a user gives through the console
+	public boolean insertAProfile(Profile newProfile) {
 		
 		boolean result = false;
-		String sql = SQLXMLUtility.getInstance().getPropertyMap().get("addProfiles");
+		String sql = SQLXMLUtility.getInstance().getPropertyMap().get("insertAProfile");
 		
-		try(PreparedStatement stmt = ConnectionUtil.getConnection().prepareStatement(sql)) { 
+		try(PreparedStatement preparedStatement = ConnectionUtil.getConnection().prepareStatement(sql)) { 
 			
-			stmt.setInt(1, p.getId());
-			stmt.setString(2, p.getName());
+			preparedStatement.setInt(1, newProfile.getId());
+			preparedStatement.setString(2, newProfile.getName());
 			
-			ResultSet rs;
-			
-			if ((rs = stmt.executeQuery()) != null) { 
-				rs.next();  
-				int id = rs.getInt(1); 
-				if(id > 0) result = true;
-				return result;
-			} 
+			return dbSaveIsSuccess(preparedStatement); 
 			
 		} catch (SQLException e) {
 			log.error(Constants.ADDEXCEPTION, e);
@@ -83,5 +75,12 @@ public class ProfileDao implements IProfileDao{
 		return result;
 		
 	}
-
+	
+	private boolean dbSaveIsSuccess(PreparedStatement preparedStatement) throws SQLException {
+		
+		int updateResult = preparedStatement.executeUpdate();
+		return (updateResult > 0);
+		
+	}
+	
 }

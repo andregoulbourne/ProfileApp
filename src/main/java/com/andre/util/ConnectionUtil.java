@@ -1,4 +1,4 @@
-package com.profiles.util;
+package com.andre.util;
 
 import java.io.File;
 import java.io.FileReader;
