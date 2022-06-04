@@ -24,6 +24,7 @@ public class H2DbSetup {
 	@AfterEach
 	void destroyH2TestDB() throws IOException, SQLException {
 		DBScriptRunner.executeMultipleScript(CLEANUP_SCRIPT);
+		DBScriptRunner.executeMultipleScript(DATA_CREATION_SCRIPT);
 	}
 
 }
