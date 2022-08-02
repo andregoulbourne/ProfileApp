@@ -1,6 +1,9 @@
-package com.andre.profile;
+package com.andre.service;
 
 import java.util.List;
+
+import com.andre.dao.ProfileDao;
+import com.andre.model.Profile;
 
 public class ProfileService {
 	

@@ -1,8 +1,10 @@
-package com.andre.profile;
+package com.andre.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+
+import com.andre.model.Profile;
 
 class ProfileTest {
 	

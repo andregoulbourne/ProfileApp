@@ -1,4 +1,4 @@
-package com.andre.profile;
+package com.andre.controller;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.andre.controller.ProfileController;
+import com.andre.model.Profile;
 import com.andre.utility.H2DbSetup;
 
 class ProfileControllerTest extends H2DbSetup {

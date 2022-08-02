@@ -1,4 +1,4 @@
-package com.andre.profile;
+package com.andre.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.andre.model.Profile;
 import com.andre.util.ConnectionUtil;
 import com.andre.util.Constants;
 import com.andre.util.SQLXMLUtility;
