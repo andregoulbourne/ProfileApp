@@ -11,6 +11,7 @@
 	http://www.springframework.org/schema/context/spring-context-2.5.xsd ">
 	
 	
+	 <mvc:annotation-driven/>
 	<ctx:annotation-config></ctx:annotation-config>
 	<ctx:component-scan base-package="com.andre"></ctx:component-scan>
 </beans>

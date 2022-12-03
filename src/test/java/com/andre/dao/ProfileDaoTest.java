@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.andre.dao.ProfileDao;
 import com.andre.model.Profile;
 import com.andre.utility.H2DbSetup;
 
